@@ -1,18 +1,49 @@
-Hey, I’m amuzetnoM
+# Hey, I’m amuzetnoM
 
-I’m building at the edge of AI, blockchain, and open-source—crafting tools, systems, and communities that empower autonomy, creativity, and collaboration.
+Welcome to my space. I build at the edge of **AI, blockchain, and open-source**—designing systems and tools that empower autonomy, creativity, and collaboration.
 
-Founder @ Artifact Virtual, a collective focused on digital sovereignty, decentralized infrastructure, and the fusion of art with technology.
+---
 
-My focus:
+### **What I Do**
 
-Developing scalable, self-sustaining ecosystems
+- **Founder @ Artifact Virtual**  
+  A collective dedicated to digital sovereignty, decentralized infrastructure, and the fusion of art with technology.
 
-Designing for creators, autodidacts, and innovators
+- **Engineer & Technologist**  
+  Focused on building scalable, self-sustaining systems that serve creators, communities, and future-forward thinkers.
 
-Prototyping the future of human-tech synergy
+- **Creative Technologist**  
+  I blend systems thinking with aesthetics, exploring how intelligent tools can empower the individual.
 
+---
 
-I believe in radical execution, elegant code, and ideas that outlive hype.
+### **What I Value**
 
-Let’s build something real.
+- **Execution > Hype**  
+  Ideas mean nothing without action. I prototype fast, iterate hard, and ship what matters.
+
+- **Sovereignty by Design**  
+  Everything I build aims to give users control—of their data, tools, and creative freedom.
+
+- **Community as Infrastructure**  
+  Collaboration isn't a feature—it's a foundation.
+
+---
+
+### **Current Focus**
+
+- Building decentralized ecosystems with real-world utility  
+- Developing AI-integrated workflows and open-source tooling  
+- Empowering autodidacts, innovators, and creators  
+
+---
+
+### **Let’s Connect**
+
+Feel free to explore my projects, fork ideas, or reach out for collaboration.  
+We’re here to **build something real**—and leave something that lasts.
+
+---
+
+> _"Tools for those who create. Systems for those who shape."_  
+> — amuzetnoM
