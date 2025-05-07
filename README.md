@@ -1,4 +1,11 @@
-# Hey, I’m amuzetnoM
+<!-- Custom black badge with white text -->
+![AMUZETNOM](https://img.shields.io/badge/AMUZETNOM-black?style=for-the-badge&logoColor=white&color=000000)
+
+<!-- Technologies -->
+![AI Developer](https://img.shields.io/badge/AI_Developer-gray?style=for-the-badge&logo=openai&logoColor=white)
+![Blockchain Builder](https://img.shields.io/badge/Blockchain_Builder-0a0a0a?style=for-the-badge&logo=ethereum&logoColor=white)
+![Open Source Advocate](https://img.shields.io/badge/Open_Source-222222?style=for-the-badge&logo=github&logoColor=white)
+![Creative Technologist](https://img.shields.io/badge/Creative_Technologist-6f42c1?style=for-the-badge&logo=codepen&logoColor=white)
 
 Welcome to my space. I build at the edge of **AI, blockchain, and open-source**—designing systems and tools that empower autonomy, creativity, and collaboration.
 
