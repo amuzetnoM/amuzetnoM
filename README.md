@@ -81,15 +81,12 @@
     Let’s think, break, and reconstruct—deliberately.
 </p>
 
----
+
 <p align="center">
     <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer" alt="Footer Wave" />
 </p>
 <p align="center">
     <img src="https://skillicons.dev/icons?i=python,rust,typescript,go,cpp,cs,java,js,html,css,react,vue,angular,nodejs,graphql,php,laravel,django,flask,fastapi,postgres,mysql,mongodb,sqlite,redis,aws,azure,gcp,docker,kubernetes,git,github,gitlab,figma,blender,unity,unreal,latex,markdown,vercel,netlify,heroku,cloudflare,tailwind,bootstrap,sass,webpack,vite,astro,solidjs,svelte,redux,graphql,apollo,prisma,matplotlib,pandas,numpy,scipy,keras,tensorflow,pytorch,opencv,linux,windows,arduino,raspberrypi,nginx,apache,cmake,ffmpeg,notion,confluence,jira,jenkins,bitbucket" alt="Tech Stack" />
-</p>
-<p align="center">
-    <img src="https://raw.githubusercontent.com/rodrigograca31/rodrigograca31/master/matrix.svg" width="600" alt="Matrix Animation" />
 </p>
 
 
@@ -100,9 +97,7 @@
     <img src="https://github-contributor-stats.vercel.app/api?username=amuzetnoM&limit=5&theme=tokyonight&combine_all_yearly_contributions=true" alt="Top Projects" />
 </p>
 
-<p align="center">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=F7F7F7&center=true&vCenter=true&width=800&lines=The+only+constant+is+change.;Embrace+the+paradox.;Build+the+impossible." alt="Typing SVG" />
-</p>
+
 <p align="center">
     <a href="mailto:your.email@example.com">
         <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
@@ -117,6 +112,28 @@
 <p align="center">
     <img src="https://komarev.com/ghpvc/?username=amuzetnoM&style=flat-square&color=blue" alt="Profile Views" />
 </p>
+
+
+<p align="center">
+    <img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:ffd700,50:ff69b4,100:4169e1&section=footer&reversal=true&animation=twinkling" />
+    <img src="https://capsule-render.vercel.app/api?type=rect&height=1&color=0:4169e1,50:ff69b4,100:ffd700&section=footer&reversal=false&animation=twinkling" />
+</p>
+
+
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rodrigograca31/rodrigograca31/master/matrix.svg" width="600" alt="Matrix Animation" />
+</p>
+
+<p align="center">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=F7F7F7&center=true&vCenter=true&width=800&lines=The+only+constant+is+change.;Embrace+the+paradox.;Build+the+impossible." alt="Typing SVG" />
+</p> <p align="center">
+    <img src="https://raw.githubusercontent.com/rodrigograca31/rodrigograca31/master/matrix.svg" width="600" alt="Matrix Animation" />
+</p> <p align="center">
+    <img src="https://raw.githubusercontent.com/rodrigograca31/rodrigograca31/master/matrix.svg" width="600" alt="Matrix Animation" />
+</p> <p align="center">
+    <img src="https://raw.githubusercontent.com/rodrigograca31/rodrigograca31/master/matrix.svg" width="600" alt="Matrix Animation" />
+</p> 
 
                                                                  
                                                                                  to be seen, is to cease to be.
