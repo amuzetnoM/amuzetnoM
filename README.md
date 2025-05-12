@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=150&text=Welcome%20to%20The%20Archive&fontAlign=40&fontAlignY=40&color=gradient&fontSize=40&animation=fadeIn&desc=Code%20as%20Philosophy%20%7C%20Abstraction%20as%20Method" alt="Banner" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=150&text=Welcome%20to%20The%20Archive&fontAlign=40&fontAlignY=40&color=gradient&fontSize=25&animation=fadeIn&desc=Code%20as%20Philosophy%20%7C%20Abstraction%20as%20Method" alt="Banner" />
 </p>
 
 ---
