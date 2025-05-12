@@ -1,8 +1,3 @@
-<!-- HEADER -->
-
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Mono&size=28&pause=1200&color=F8F8F2&center=true&vCenter=true&width=900&lines=THE+ARCHIVE;Not+a+portfolio.;Not+a+résumé.;A+living+repository+of+thought." alt="Typing SVG" />
-</p>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&height=150&text=Welcome%20to%20The%20Archive&fontAlign=40&fontAlignY=40&color=gradient&fontSize=40&animation=fadeIn&desc=Code%20as%20Philosophy%20%7C%20Abstraction%20as%20Method" alt="Banner" />
