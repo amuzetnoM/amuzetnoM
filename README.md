@@ -114,10 +114,6 @@
 </p>
 
 
-<p align="center">
-    <img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:ffd700,50:ff69b4,100:4169e1&section=footer&reversal=true&animation=twinkling" />
-    <img src="https://capsule-render.vercel.app/api?type=rect&height=1&color=0:4169e1,50:ff69b4,100:ffd700&section=footer&reversal=false&animation=twinkling" />
-</p>
 
 
 
@@ -136,4 +132,9 @@
 </p> 
 
                                                                  
-                                                                      to be seen, is to cease to be.
+                                                                                                           to be seen, is to cease to be.
+
+<p align="center">
+    <img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:ffd700,50:ff69b4,100:4169e1&section=footer&reversal=true&animation=twinkling" />
+    <img src="https://capsule-render.vercel.app/api?type=rect&height=1&color=0:4169e1,50:ff69b4,100:ffd700&section=footer&reversal=false&animation=twinkling" />
+</p>
