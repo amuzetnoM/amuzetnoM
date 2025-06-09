@@ -50,7 +50,7 @@
     <ul>
         <li><b>Disruption is clarity</b>: The anomaly is not a glitch. It’s a guide.</li>
         <li><b>Systems are mirrors</b>: Structure reveals thought. Every architecture reflects belief.</li>
-        <li><b>Abstraction is power</b>: The further from convention, the closer to truth.</li>
+        <li><b>Abstraction is power</b>: The further from convention, the closer to the truth.</li>
         <li><b>Meaning over metrics</b>: I don’t chase views, forks, or stars. I chase questions.</li>
     </ul>
 </p>
