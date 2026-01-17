@@ -481,21 +481,35 @@ class GitHubMetricsTracker:
             'workflows': workflow_stats
         }
     
+    def _parse_github_datetime(self, date_string: str) -> Optional[datetime]:
+        """Parse GitHub API datetime string safely."""
+        if not date_string:
+            return None
+        try:
+            # GitHub API returns ISO 8601 format with 'Z' suffix for UTC
+            # Replace 'Z' with '+00:00' for proper timezone parsing
+            if date_string.endswith('Z'):
+                date_string = date_string[:-1] + '+00:00'
+            return datetime.fromisoformat(date_string)
+        except (ValueError, AttributeError) as e:
+            print(f"Warning: Failed to parse datetime '{date_string}': {e}")
+            return None
+    
     def get_custom_metrics(self, repo_full_name: str, basic_metrics: Dict) -> Dict[str, Any]:
         """Calculate custom metrics not directly provided by GitHub API."""
         custom = {}
         
         # Repository age
-        if basic_metrics.get('created_at'):
-            created = datetime.fromisoformat(basic_metrics['created_at'].replace('Z', '+00:00'))
-            age_days = (datetime.now(created.tzinfo) - created).days
+        created = self._parse_github_datetime(basic_metrics.get('created_at'))
+        if created:
+            age_days = (datetime.now(timezone.utc) - created).days
             custom['age_days'] = age_days
             custom['age_years'] = round(age_days / 365.25, 2)
         
         # Activity metrics
-        if basic_metrics.get('pushed_at'):
-            last_push = datetime.fromisoformat(basic_metrics['pushed_at'].replace('Z', '+00:00'))
-            days_since_push = (datetime.now(last_push.tzinfo) - last_push).days
+        last_push = self._parse_github_datetime(basic_metrics.get('pushed_at'))
+        if last_push:
+            days_since_push = (datetime.now(timezone.utc) - last_push).days
             custom['days_since_last_push'] = days_since_push
             custom['is_active'] = days_since_push < 90  # Active if pushed in last 90 days
         
