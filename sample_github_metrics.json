@@ -1,0 +1,206 @@
+{
+  "repositories": [
+    {
+      "repository": "amuzetnoM/amuzetnoM",
+      "collected_at": "2026-01-17T19:46:00+00:00",
+      "basic": {
+        "name": "amuzetnoM",
+        "full_name": "amuzetnoM/amuzetnoM",
+        "description": "My GitHub Profile Repository",
+        "private": false,
+        "fork": false,
+        "created_at": "2023-04-01T00:00:00Z",
+        "updated_at": "2026-01-17T19:46:00Z",
+        "pushed_at": "2026-01-17T19:46:00Z",
+        "size": 1024,
+        "stargazers_count": 10,
+        "watchers_count": 5,
+        "forks_count": 2,
+        "open_issues_count": 1,
+        "default_branch": "main",
+        "language": "Python",
+        "has_issues": true,
+        "has_projects": true,
+        "has_downloads": true,
+        "has_wiki": true,
+        "has_pages": false,
+        "has_discussions": false,
+        "archived": false,
+        "disabled": false,
+        "visibility": "public",
+        "license": "MIT",
+        "topics": ["github-metrics", "automation", "python"],
+        "homepage": null,
+        "network_count": 2,
+        "subscribers_count": 5
+      },
+      "languages": {
+        "Python": 50000,
+        "JavaScript": 30000,
+        "HTML": 20000
+      },
+      "contributors": [
+        {
+          "login": "amuzetnoM",
+          "contributions": 100,
+          "type": "User"
+        }
+      ],
+      "contributor_count": 1,
+      "commit_activity": {
+        "total_commits_last_year": 150,
+        "weekly_activity": []
+      },
+      "code_frequency": {
+        "total_additions": 5000,
+        "total_deletions": 1000,
+        "net_lines": 4000,
+        "weekly_data": []
+      },
+      "participation": {
+        "owner_commits": 150,
+        "all_commits": 150,
+        "community_commits": 0
+      },
+      "issues": {
+        "open_count": 1,
+        "closed_count": 5,
+        "total_count": 6,
+        "open_prs": 0,
+        "closed_prs": 3
+      },
+      "pull_requests": {
+        "open_count": 0,
+        "closed_count": 3,
+        "merged_count": 3,
+        "total_count": 3,
+        "merge_rate": 1.0
+      },
+      "releases": {
+        "total_releases": 2,
+        "latest_release": "v1.0.0",
+        "latest_release_date": "2025-12-01T00:00:00Z",
+        "total_asset_downloads": 50,
+        "releases": []
+      },
+      "branches": {
+        "total_branches": 3,
+        "branches": [
+          {"name": "main", "protected": true},
+          {"name": "develop", "protected": false}
+        ]
+      },
+      "tags": {
+        "total_tags": 2,
+        "latest_tags": ["v1.0.0", "v0.9.0"]
+      },
+      "traffic": {},
+      "community": {
+        "health_percentage": 85,
+        "files": {
+          "code_of_conduct": false,
+          "contributing": true,
+          "issue_template": true,
+          "pull_request_template": true,
+          "license": true,
+          "readme": true
+        }
+      },
+      "dependabot_alerts": {
+        "total_alerts": 0,
+        "by_severity": {},
+        "by_state": {},
+        "open_critical": 0
+      },
+      "code_scanning_alerts": {
+        "total_alerts": 0,
+        "by_severity": {},
+        "by_state": {}
+      },
+      "workflows": {
+        "total_workflows": 1,
+        "active_workflows": 1,
+        "workflows": []
+      },
+      "custom": {
+        "age_days": 656,
+        "age_years": 1.8,
+        "days_since_last_push": 0,
+        "is_active": true,
+        "engagement_score": 19.5,
+        "fork_ratio": 0.2,
+        "popularity": "moderate"
+      }
+    }
+  ],
+  "summary": {
+    "total_repositories": 1,
+    "total_stars": 10,
+    "total_forks": 2,
+    "total_watchers": 5,
+    "total_open_issues": 1,
+    "total_contributors": 1,
+    "total_releases": 2,
+    "total_commits": 150,
+    "total_code_additions": 5000,
+    "total_code_deletions": 1000,
+    "active_repositories": 1,
+    "archived_repositories": 0,
+    "private_repositories": 0,
+    "public_repositories": 1,
+    "forked_repositories": 0,
+    "total_open_prs": 0,
+    "total_merged_prs": 3,
+    "languages": {
+      "Python": {
+        "bytes": 50000,
+        "percentage": 50.0
+      },
+      "JavaScript": {
+        "bytes": 30000,
+        "percentage": 30.0
+      },
+      "HTML": {
+        "bytes": 20000,
+        "percentage": 20.0
+      }
+    },
+    "most_starred": [
+      {
+        "name": "amuzetnoM/amuzetnoM",
+        "stars": 10
+      }
+    ],
+    "most_forked": [
+      {
+        "name": "amuzetnoM/amuzetnoM",
+        "forks": 2
+      }
+    ]
+  },
+  "timestamp": "2026-01-17T19:46:00+00:00",
+  "user_info": {
+    "basic_info": {
+      "login": "amuzetnoM",
+      "name": "amuzetnoM",
+      "company": null,
+      "blog": "",
+      "location": null,
+      "email": null,
+      "bio": null,
+      "twitter_username": null,
+      "created_at": "2023-04-01T00:00:00Z",
+      "updated_at": "2026-01-17T19:46:00Z"
+    },
+    "account_metrics": {
+      "public_repos": 1,
+      "public_gists": 0,
+      "followers": 10,
+      "following": 5,
+      "total_private_repos": 0,
+      "owned_private_repos": 0,
+      "disk_usage": 1024,
+      "collaborators": 0
+    }
+  }
+}

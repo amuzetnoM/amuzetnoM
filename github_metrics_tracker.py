@@ -9,7 +9,7 @@ import json
 import csv
 import os
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from collections import defaultdict
 from typing import Dict, List, Any, Optional
 import time
@@ -42,7 +42,7 @@ class GitHubMetricsTracker:
         self.metrics = {
             'repositories': [],
             'summary': {},
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'user_info': {}
         }
     
@@ -525,7 +525,7 @@ class GitHubMetricsTracker:
         
         repo_metrics = {
             'repository': repo_full_name,
-            'collected_at': datetime.utcnow().isoformat()
+            'collected_at': datetime.now(timezone.utc).isoformat()
         }
         
         # Basic metrics

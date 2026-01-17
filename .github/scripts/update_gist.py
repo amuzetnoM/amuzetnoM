@@ -6,7 +6,7 @@ Script to create/update a GitHub Gist with metrics data
 import os
 import json
 import requests
-from datetime import datetime
+from datetime import datetime, timezone
 
 GIST_TOKEN = os.environ.get('GITHUB_TOKEN')  # Fallback to GITHUB_TOKEN if GIST_TOKEN not set
 GIST_ID = os.environ.get('GIST_ID')  # Optional: specify existing gist ID
@@ -51,7 +51,7 @@ def create_or_update_gist():
     # Add a README to the gist
     readme_content = f"""# 📊 GitHub Metrics - Live Dashboard
 
-**Last Updated**: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC
+**Last Updated**: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC
 
 This gist contains comprehensive GitHub metrics that are automatically updated every 6 hours.
 
