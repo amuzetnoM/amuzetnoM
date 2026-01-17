@@ -29,7 +29,15 @@ echo -e "${BLUE}Python version: $PYTHON_VERSION${NC}"
 # Install dependencies
 echo ""
 echo "📦 Installing dependencies..."
-pip3 install -q -r requirements.txt
+
+# Check if we're in a virtual environment
+if [ -z "$VIRTUAL_ENV" ]; then
+    echo -e "${YELLOW}⚠️  Not in a virtual environment. Installing with --user flag for safety.${NC}"
+    pip3 install -q --user -r requirements.txt
+else
+    echo -e "${GREEN}✅ Virtual environment detected${NC}"
+    pip3 install -q -r requirements.txt
+fi
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✅ Dependencies installed${NC}"
