@@ -46,10 +46,15 @@ class GitHubMetricsTracker:
             'user_info': {}
         }
     
-    def _make_request(self, url: str, params: Optional[Dict] = None) -> Optional[Any]:
+    def _make_request(self, url: str, params: Optional[Dict] = None, extra_headers: Optional[Dict] = None) -> Optional[Any]:
         """Make a request to the GitHub API with rate limit handling."""
         try:
-            response = requests.get(url, headers=self.headers, params=params)
+            # Merge extra headers if provided
+            headers = self.headers.copy()
+            if extra_headers:
+                headers.update(extra_headers)
+            
+            response = requests.get(url, headers=headers, params=params)
             
             # Handle rate limiting
             if response.status_code == 403 and 'rate limit' in response.text.lower():
@@ -57,7 +62,7 @@ class GitHubMetricsTracker:
                 wait_time = max(reset_time - int(time.time()), 0) + 1
                 print(f"Rate limit reached. Waiting {wait_time} seconds...")
                 time.sleep(wait_time)
-                response = requests.get(url, headers=self.headers, params=params)
+                response = requests.get(url, headers=headers, params=params)
             
             response.raise_for_status()
             return response.json()
@@ -392,7 +397,7 @@ class GitHubMetricsTracker:
         # Note: This requires specific OAuth scopes
         alerts = self._make_request(
             f'{self.base_url}/repos/{repo_full_name}/vulnerability-alerts',
-            headers={'Accept': 'application/vnd.github.dorian-preview+json'}
+            extra_headers={'Accept': 'application/vnd.github.dorian-preview+json'}
         )
         
         return {
