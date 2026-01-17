@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live GitHub Metrics Dashboard</title>
+    <meta http-equiv="refresh" content="21600"> <!-- Auto-refresh every 6 hours -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #21262d;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            color: #58a6ff;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #8b949e;
+            margin-bottom: 20px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 5px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .update-info {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .update-time {
+            font-size: 1.1em;
+            color: #58a6ff;
+            font-weight: bold;
+        }
+        
+        .loading-container {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .spinner {
+            border: 4px solid #30363d;
+            border-top: 4px solid #58a6ff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .metrics-container {
+            display: none;
+        }
+        
+        .metrics-container.loaded {
+            display: block;
+        }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #58a6ff, #1f6feb);
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.2);
+        }
+        
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #58a6ff;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+        }
+        
+        .metric-label {
+            color: #8b949e;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .section {
+            margin: 50px 0;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            color: #58a6ff;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #21262d;
+        }
+        
+        .chart-container {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .language-bar {
+            margin: 15px 0;
+        }
+        
+        .language-item {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+        }
+        
+        .language-name {
+            width: 120px;
+            color: #c9d1d9;
+            font-weight: 500;
+        }
+        
+        .language-progress {
+            flex: 1;
+            height: 8px;
+            background: #21262d;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 15px;
+        }
+        
+        .language-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #58a6ff, #1f6feb);
+            transition: width 1s ease;
+        }
+        
+        .language-percentage {
+            width: 60px;
+            text-align: right;
+            color: #8b949e;
+            font-weight: bold;
+        }
+        
+        .repo-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #161b22;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .repo-table thead {
+            background: #21262d;
+        }
+        
+        .repo-table th {
+            padding: 15px;
+            text-align: left;
+            color: #58a6ff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        
+        .repo-table td {
+            padding: 15px;
+            border-top: 1px solid #21262d;
+        }
+        
+        .repo-table tr:hover {
+            background: #1c2128;
+        }
+        
+        .repo-name {
+            color: #58a6ff;
+            font-weight: 600;
+        }
+        
+        .stat-badge {
+            display: inline-block;
+            background: #21262d;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.9em;
+            margin: 0 4px;
+        }
+        
+        .download-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 1px solid #2ea043;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(46, 160, 67, 0.4);
+        }
+        
+        .error-message {
+            background: #da3633;
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .metric-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .repo-table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Live GitHub Metrics Dashboard</h1>
+            <p class="subtitle">Comprehensive analytics across all repositories</p>
+            <div class="status-badge">🔄 AUTO-UPDATED EVERY 6 HOURS</div>
+            <div class="status-badge">🌐 ALWAYS LIVE</div>
+        </div>
+        
+        <div class="update-info">
+            <div>Last Updated: <span class="update-time" id="lastUpdate">Loading...</span></div>
+            <div style="color: #8b949e; margin-top: 10px;">Next update in: <span id="nextUpdate">Calculating...</span></div>
+        </div>
+        
+        <div class="loading-container" id="loading">
+            <div class="spinner"></div>
+            <p>Loading metrics data...</p>
+        </div>
+        
+        <div class="error-message" id="errorMessage" style="display: none;">
+            ❌ Failed to load metrics data. Please try again later.
+        </div>
+        
+        <div class="metrics-container" id="metricsContainer">
+            <div class="download-links">
+                <a href="github_metrics.json" class="download-btn" download>
+                    📄 Download JSON
+                </a>
+                <a href="github_metrics.csv" class="download-btn" download>
+                    📊 Download CSV
+                </a>
+                <a href="github_metrics_report.html" class="download-btn" download>
+                    📑 Download Full Report
+                </a>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">📈 Overview</h2>
+                <div class="metric-grid" id="overviewGrid"></div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">💻 Code Statistics</h2>
+                <div class="metric-grid" id="codeGrid"></div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🌐 Language Distribution</h2>
+                <div class="chart-container">
+                    <div class="language-bar" id="languageChart"></div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">⭐ Top Repositories</h2>
+                <table class="repo-table" id="topRepos">
+                    <thead>
+                        <tr>
+                            <th>Repository</th>
+                            <th>Stars</th>
+                            <th>Forks</th>
+                            <th>Language</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Load and display metrics
+        async function loadMetrics() {
+            try {
+                const response = await fetch('github_metrics.json');
+                if (!response.ok) throw new Error('Failed to fetch metrics');
+                
+                const data = await response.json();
+                displayMetrics(data);
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('metricsContainer').classList.add('loaded');
+            } catch (error) {
+                console.error('Error loading metrics:', error);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        }
+        
+        function displayMetrics(data) {
+            // Update timestamp
+            const timestamp = new Date(data.timestamp);
+            document.getElementById('lastUpdate').textContent = timestamp.toLocaleString();
+            
+            // Calculate next update (6 hours from last update)
+            const nextUpdate = new Date(timestamp.getTime() + 6 * 60 * 60 * 1000);
+            updateCountdown(nextUpdate);
+            
+            const summary = data.summary || {};
+            
+            // Overview metrics
+            const overviewMetrics = [
+                { label: 'Total Repositories', value: summary.total_repositories || 0 },
+                { label: 'Total Stars', value: summary.total_stars || 0 },
+                { label: 'Total Forks', value: summary.total_forks || 0 },
+                { label: 'Total Watchers', value: summary.total_watchers || 0 },
+                { label: 'Total Contributors', value: summary.total_contributors || 0 },
+                { label: 'Active Repos', value: summary.active_repositories || 0 }
+            ];
+            
+            displayMetricGrid('overviewGrid', overviewMetrics);
+            
+            // Code statistics
+            const codeMetrics = [
+                { label: 'Total Commits', value: summary.total_commits || 0 },
+                { label: 'Lines Added', value: (summary.total_code_additions || 0).toLocaleString() },
+                { label: 'Lines Deleted', value: (summary.total_code_deletions || 0).toLocaleString() },
+                { label: 'Open Issues', value: summary.total_open_issues || 0 },
+                { label: 'Open PRs', value: summary.total_open_prs || 0 },
+                { label: 'Total Releases', value: summary.total_releases || 0 }
+            ];
+            
+            displayMetricGrid('codeGrid', codeMetrics);
+            
+            // Language distribution
+            displayLanguages(summary.languages || {});
+            
+            // Top repositories
+            displayTopRepos(summary.most_starred || []);
+        }
+        
+        function displayMetricGrid(containerId, metrics) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = metrics.map(metric => `
+                <div class="metric-card">
+                    <div class="metric-value">${metric.value}</div>
+                    <div class="metric-label">${metric.label}</div>
+                </div>
+            `).join('');
+        }
+        
+        function displayLanguages(languages) {
+            const container = document.getElementById('languageChart');
+            const sortedLanguages = Object.entries(languages)
+                .sort((a, b) => b[1].percentage - a[1].percentage)
+                .slice(0, 10);
+            
+            if (sortedLanguages.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #8b949e;">No language data available</p>';
+                return;
+            }
+            
+            container.innerHTML = sortedLanguages.map(([lang, stats]) => `
+                <div class="language-item">
+                    <div class="language-name">${lang}</div>
+                    <div class="language-progress">
+                        <div class="language-fill" style="width: ${stats.percentage}%"></div>
+                    </div>
+                    <div class="language-percentage">${stats.percentage.toFixed(1)}%</div>
+                </div>
+            `).join('');
+        }
+        
+        function displayTopRepos(repos) {
+            const tbody = document.querySelector('#topRepos tbody');
+            
+            if (repos.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #8b949e;">No repository data available</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = repos.slice(0, 10).map(repo => `
+                <tr>
+                    <td class="repo-name">${repo.name || 'N/A'}</td>
+                    <td><span class="stat-badge">⭐ ${repo.stars || 0}</span></td>
+                    <td><span class="stat-badge">🔱 ${repo.forks || 0}</span></td>
+                    <td>${repo.language || 'N/A'}</td>
+                </tr>
+            `).join('');
+        }
+        
+        function updateCountdown(nextUpdate) {
+            function update() {
+                const now = new Date();
+                const diff = nextUpdate - now;
+                
+                if (diff <= 0) {
+                    document.getElementById('nextUpdate').textContent = 'Updating soon...';
+                    return;
+                }
+                
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('nextUpdate').textContent = 
+                    `${hours}h ${minutes}m ${seconds}s`;
+            }
+            
+            update();
+            setInterval(update, 1000);
+        }
+        
+        // Load metrics on page load
+        loadMetrics();
+    </script>
+</body>
+</html>
