@@ -15,22 +15,19 @@
         }
 
         :root {
-            --primary-purple: #667eea;
-            --secondary-purple: #764ba2;
-            --accent-pink: #f093fb;
-            --accent-red: #f5576c;
-            --accent-cyan: #4facfe;
-            --accent-blue: #00f2fe;
+            --primary-blue: #2196F3;
+            --secondary-green: #00E676;
             --dark-bg: #0a0f1c;
             --darker-bg: #050810;
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
             --text-primary: #ffffff;
             --text-secondary: #b0bec5;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-cyan: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --shadow-glow: 0 0 30px rgba(102, 126, 234, 0.3);
+            --gradient-1: linear-gradient(135deg, #2196F3 0%, #00E676 100%);
+            --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-4: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-glow: 0 0 30px rgba(33, 150, 243, 0.3);
             --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
@@ -50,9 +47,9 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            background: radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(240, 147, 251, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 80%, rgba(33, 150, 243, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 230, 118, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
         }
 
         .stars {
@@ -103,7 +100,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: var(--gradient-primary);
+            background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -123,7 +120,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary-purple);
+            color: var(--primary-blue);
         }
 
         .nav-links a::after {
@@ -133,7 +130,7 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background: var(--gradient-primary);
+            background: var(--gradient-1);
             transition: width 0.3s ease;
         }
 
@@ -161,7 +158,7 @@
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 900;
             margin-bottom: 1rem;
-            background: var(--gradient-primary);
+            background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -208,7 +205,7 @@
         }
 
         .btn-primary {
-            background: var(--gradient-primary);
+            background: var(--gradient-1);
             color: white;
             box-shadow: var(--shadow-glow);
         }
@@ -240,19 +237,6 @@
             left: 100%;
         }
 
-        /* Version Badge */
-        .version-badge {
-            display: inline-block;
-            background: var(--gradient-accent);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
-        }
-
         /* Features Section */
         .features {
             padding: 8rem 2rem;
@@ -265,7 +249,7 @@
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            background: var(--gradient-primary);
+            background: var(--gradient-2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -303,19 +287,19 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: var(--gradient-primary);
+            background: var(--gradient-1);
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-deep);
-            border-color: var(--primary-purple);
+            border-color: var(--primary-blue);
         }
 
         .feature-icon {
             width: 60px;
             height: 60px;
-            background: var(--gradient-primary);
+            background: var(--gradient-1);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -363,7 +347,7 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 900;
-            background: var(--gradient-accent);
+            background: var(--gradient-3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -414,14 +398,14 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: var(--gradient-cyan);
+            background: var(--gradient-4);
         }
 
         .ecosystem-card h4 {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--primary-purple);
+            color: var(--primary-blue);
         }
 
         .ecosystem-card ul {
@@ -471,7 +455,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--primary-purple);
+            color: var(--primary-blue);
         }
 
         .copyright {
@@ -551,12 +535,12 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
+            background: var(--gradient-1);
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-purple);
+            background: var(--primary-blue);
         }
     </style>
 </head>
@@ -573,9 +557,7 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#ecosystem">Ecosystem</a></li>
                 <li><a href="#stats">Impact</a></li>
-                <li><a href="https://artifact-virtual.gitbook.io/ODUS" target="_blank">Documentation</a></li>
-                <li><a href="blueprint.html">Blueprint</a></li>
-                <li><a href="live_metrics_dashboard.html">Metrics</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -583,7 +565,6 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="version-badge">v3.0.0 • ODUS Release</div>
             <h1>ARTIFACT VIRTUAL</h1>
             <p class="subtitle">World's First Constitutional Blockchain with AI Governance</p>
             <p class="description">
@@ -592,7 +573,7 @@
             </p>
             <div class="cta-buttons">
                 <a href="#features" class="btn btn-primary">Explore Innovation</a>
-                <a href="https://artifact-virtual.gitbook.io/ODUS" target="_blank" class="btn btn-secondary">Read Documentation</a>
+                <a href="#ecosystem" class="btn btn-secondary">View Ecosystem</a>
             </div>
         </div>
     </section>
@@ -755,11 +736,10 @@
         <div class="footer-container">
             <div class="footer-links">
                 <a href="https://github.com/artifactvirtual">GitHub</a>
-                <a href="https://artifact-virtual.gitbook.io/ODUS" target="_blank">Documentation</a>
-                <a href="blueprint.html">Blueprint</a>
-                <a href="live_metrics_dashboard.html">Metrics</a>
-                <a href="#features">Features</a>
-                <a href="#ecosystem">Ecosystem</a>
+                <a href="/docs">Documentation</a>
+                <a href="/research">Research</a>
+                <a href="/whitepaper">Whitepaper</a>
+                <a href="/blog">Blog</a>
             </div>
             <div class="copyright">
                 <p>&copy; 2025 Artifact Virtual. Revolutionary AI-Blockchain Platform. Building the Future of Constitutional Intelligence.</p>
