@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/VS%20Code-111111?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
+  <img src="https://img.shields.io/badge/Visual%20Studio-111111?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
   &nbsp;&nbsp;
   <img src="https://img.shields.io/badge/Antigravity-111111?style=for-the-badge" />
 </p>
